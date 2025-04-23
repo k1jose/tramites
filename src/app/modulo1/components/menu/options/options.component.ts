@@ -32,12 +32,6 @@ export class OptionsComponent {
     }
     ,
     {
-      icon: 'fa-solid fa-magnifying-glass', // Búsqueda
-      label: 'BUSCAR',
-      description: '',
-      route: '/dashboard/search',
-    },
-    {
       icon: 'fa-solid fa-user-group', // Clientes
       label: 'CLIENTES',
       description: '',

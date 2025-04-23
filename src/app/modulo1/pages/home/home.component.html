@@ -2,45 +2,46 @@
 
     <!-- Contenido principal del dashboard -->
     <div class="flex flex-col flex-1 overflow-y-auto">
-  
-      
-      <!-- Main content -->
-      <main class="p-6 space-y-6 bg-gray-50 flex-1 overflow-y-auto">
-  
-        <!-- Resumen -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          @for (card of summaryCards; track card.label) {
-            <div class="bg-white shadow rounded-xl p-4 flex flex-col items-start">
-              <p class="text-sm text-gray-500">{{ card.label }}</p>
-              <h2 class="text-2xl font-bold text-gray-800">{{ card.value }}</h2>
+
+
+        <!-- Main content -->
+        <main class="p-6 space-y-6 bg-gray-50 flex-1 overflow-y-auto">
+
+            <!-- Resumen -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                @for (card of summaryCards; track card.label) {
+                <div class="bg-white shadow rounded-xl p-4 flex flex-col items-start">
+                    <p class="text-sm text-gray-500">{{ card.label }}</p>
+                    <h2 class="text-2xl font-bold text-gray-800">{{ card.value }}</h2>
+                </div>
+                }
             </div>
-          }
-        </div>
-  
-        <!-- Gráfico -->
-        <div class="bg-white rounded-xl shadow p-4">
-          <p class="text-gray-600">Distribución por estado</p>
-          <div class="h-48 bg-gray-100 rounded mt-2 flex items-center justify-center text-gray-400">
-            [Gráfico aquí]
-          </div>
-        </div>
-  
-        <!-- Últimos trámites -->
-        <div>
-          <h3 class="text-lg font-semibold text-gray-800 mb-2">Últimos trámites</h3>
-          <div class="space-y-2">
-            @for (item of recentProcesses; track item.id) {
-              <app-item-process
-                [title]="item.title"
-                [createdAt]="item.createdAt"
-                [status]="item.status"
-                (openDetails)="goToDetail(item.id)">
-              </app-item-process>
-            }
-          </div>
-        </div>
-  
-      </main>
+
+            <!--graficos-->
+            <div class="bg-white rounded-xl shadow p-4 w-96">
+                <!-- Añadí w-96 para darle un ancho fijo -->
+                <p class="text-lg font-semibold text-gray-800 mb-2">Distribución por estado</p>
+                <div class="h-32 bg-gray-100 rounded mt-2 flex items-center justify-center text-gray-400">
+                    <canvas id="estadoChart" class="w-full h-full"></canvas>
+                </div>
+            </div>
+
+
+
+
+            <!-- Últimos trámites -->
+            <div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Últimos trámites</h3>
+                <div class="space-y-4">
+                    <!-- Cambié space-y-2 por space-y-4 -->
+                    @for (item of recentProcesses; track item.id) {
+                    <app-item-process [title]="item.title" [createdAt]="item.createdAt" [status]="item.status" (openDetails)="goToDetail(item.id)">
+                    </app-item-process>
+                    }
+                </div>
+            </div>
+
+
+        </main>
     </div>
-  </div>
-  
+</div>
