@@ -1,0 +1,93 @@
+<section class="p-6">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold text-blue-900 uppercase">Trámites</h2>
+      <button 
+      class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full font-semibold shadow"
+      routerLink="/dashboard/add-procedure">
+      Agregar
+    </button>
+    
+    </div>
+  
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+      <div class="bg-gray-100 p-5 rounded-2xl shadow hover:shadow-md transition">
+        <h3 class="text-center text-sm font-bold border-b pb-2 mb-4 uppercase">Trámites</h3>
+        <div class="flex flex-col items-center gap-2">
+            <i class="fa-solid fa-clipboard-list text-3xl text-blue-800"></i>
+            <span class="text-lg font-semibold text-gray-700">Pendientes</span>
+            <span class="text-2xl font-bold text-blue-900">5</span>
+            <button 
+              class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-1 rounded-full text-sm mt-2"
+              routerLink="/dashboard/pending-procedures">
+              Ver
+            </button>
+          </div>
+          
+      </div>
+  
+      <div class="bg-gray-100 p-5 rounded-2xl shadow hover:shadow-md transition">
+        <h3 class="text-center text-sm font-bold border-b pb-2 mb-4 uppercase">Trámites</h3>
+        <div class="flex flex-col items-center gap-2">
+          <i class="fa-solid fa-file-signature text-3xl text-blue-800"></i>
+          <span class="text-lg font-semibold text-gray-700">Iniciados</span>
+          <span class="text-2xl font-bold text-blue-900">3</span>
+          <button 
+          class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-1 rounded-full text-sm mt-2"
+          routerLink="/dashboard/started-procedures">
+          Ver
+        </button>
+        </div>
+      </div>
+  
+      <div class="bg-gray-100 p-5 rounded-2xl shadow hover:shadow-md transition">
+        <h3 class="text-center text-sm font-bold border-b pb-2 mb-4 uppercase">Trámites</h3>
+        <div class="flex flex-col items-center gap-2">
+          <i class="fa-solid fa-circle-check text-3xl text-blue-800"></i>
+          <span class="text-lg font-semibold text-gray-700">Finalizados</span>
+          <span class="text-2xl font-bold text-blue-900">3</span>
+          <button 
+          class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-1 rounded-full text-sm mt-2"
+          routerLink="/dashboard/finished-procedures">
+          Ver
+        </button>
+        </div>
+      </div>
+  
+      <div class="bg-gray-100 p-5 rounded-2xl shadow hover:shadow-md transition">
+        <h3 class="text-center text-sm font-bold border-b pb-2 mb-4 uppercase">Trámites</h3>
+        <div class="flex flex-col items-center gap-2">
+          <i class="fa-solid fa-calendar-xmark text-3xl text-blue-800"></i>
+          <span class="text-lg font-semibold text-gray-700">Vencidos</span>
+          <span class="text-2xl font-bold text-blue-900">1</span>
+          <button 
+              class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-1 rounded-full text-sm mt-2"
+              routerLink="/dashboard/expired-procedures">
+              Ver
+            </button>
+        </div>
+      </div>
+
+      <div class="bg-gray-100 p-5 rounded-2xl shadow hover:shadow-md transition">
+        <h3 class="text-center text-sm font-bold border-b pb-2 mb-4 uppercase">Trámites</h3>
+        <div class="flex flex-col items-center gap-2">
+          <i class="fa-solid fa-calendar-xmark text-3xl text-blue-800"></i>
+          <span class="text-lg font-semibold text-gray-700">Rechazados</span>
+          <span class="text-2xl font-bold text-blue-900">1</span>
+          <button 
+              class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-1 rounded-full text-sm mt-2"
+              routerLink="/dashboard/rejected-procedures">
+              Ver
+            </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Botón regresar -->
+    <div class="fixed bottom-6 right-6">
+        <button [routerLink]="['/home/process']"
+          class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full shadow-md flex items-center gap-2">
+          <i class="fa-solid fa-rotate-left"></i> Regresar
+        </button>
+      </div>
+  </section>
+  

@@ -1,0 +1,59 @@
+<div class="flex h-screen overflow-hidden text-slate-600">
+    <div class="flex flex-col flex-1 overflow-y-auto">
+        <main class="p-6 space-y-6 bg-gray-50 flex-1 overflow-y-auto">
+
+            <!-- Resumen -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                @for (card of summaryCards; track card.label) {
+                <div class="bg-white shadow rounded-xl p-4 flex flex-col items-start">
+                    <p class="text-sm text-gray-500">{{ card.label }}</p>
+                    <h2 class="text-2xl font-bold text-gray-800">{{ card.value }}</h2>
+                </div>
+                }
+            </div>
+
+            <!-- Gráficos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-xl shadow p-4 w-full">
+                    <p class="text-lg font-semibold text-gray-800 mb-2">Trámites por estado (Barras)</p>
+                    <div class="h-64">
+                        <canvas id="estadoBarChart" class="w-full h-full"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow p-4 w-full">
+                    <p class="text-lg font-semibold text-gray-800 mb-2">Distribución por estado (Circular)</p>
+                    <div class="h-64">
+                        <canvas id="estadoPieChart" class="w-full h-full"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Últimos trámites -->
+            <div>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Últimos trámites</h3>
+                <div class="space-y-4">
+                    @for (item of recentProcesses; track item.id) {
+                    <div class="bg-white shadow rounded-lg p-4 flex justify-between items-center hover:bg-gray-100 cursor-pointer"
+                        (click)="goToDetail(item.id)">
+                        <div>
+                            <p class="font-semibold text-gray-800">{{ item.title }}</p>
+                            <p class="text-sm text-gray-500">{{ item.createdAt | date: 'mediumDate' }}</p>
+                        </div>
+                        <span class="text-xs font-bold px-2 py-1 rounded" [ngClass]="{
+                    'bg-yellow-100 text-yellow-800': item.status === 'pending',
+                    'bg-blue-100 text-blue-800': item.status === 'in_progress',
+                    'bg-green-100 text-green-800': item.status === 'completed',
+                    'bg-red-100 text-red-800': item.status === 'rejected',
+                    'bg-purple-100 text-purple-800': item.status === 'finished'
+                  }">
+                            {{ item.status }}
+                        </span>
+                    </div>
+                    }
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>

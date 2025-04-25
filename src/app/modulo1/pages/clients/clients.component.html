@@ -1,0 +1,43 @@
+<section class="p-6">
+    <!-- Título -->
+    <h2 class="text-2xl font-bold text-blue-900 mb-6 text-center uppercase">
+      Clientes
+    </h2>
+  
+    <!-- Tabla de clientes -->
+    <div class="overflow-x-auto rounded-lg shadow">
+      <table class="min-w-full bg-gray-100 text-sm text-center border border-gray-300">
+        <thead class="bg-blue-800 text-white uppercase text-xs">
+          <tr>
+            <th class="px-4 py-2 border">ID</th>
+            <th class="px-4 py-2 border">Nombre</th>
+            <th class="px-4 py-2 border">Apellido</th>
+            <th class="px-4 py-2 border">DNI</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700">
+          <tr class="hover:bg-blue-50">
+            <td class="px-4 py-2 border">01</td>
+            <td class="px-4 py-2 border">fresa</td>
+            <td class="px-4 py-2 border">fresita roja</td>
+            <td class="px-4 py-2 border">8755433</td>
+          </tr>
+          <tr class="hover:bg-blue-50">
+            <td class="px-4 py-2 border">02</td>
+            <td class="px-4 py-2 border">pablo</td>
+            <td class="px-4 py-2 border">saco clavito</td>
+            <td class="px-4 py-2 border">8759087</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Botón regresar -->
+    <div class="fixed bottom-6 right-6">
+        <button [routerLink]="['/dashboard/home']"
+          class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full shadow-md flex items-center gap-2">
+          <i class="fa-solid fa-rotate-left"></i> Regresar
+        </button>
+      </div>
+  </section>
+  

@@ -1,0 +1,49 @@
+<section class="p-6">
+    <h2 class="text-2xl font-bold text-blue-900 uppercase text-center mb-6">Trámites finalizados</h2>
+  
+    <!-- Indicador visual superior 
+    <div class="flex justify-center mb-8">
+      <div class="w-10 h-5 bg-yellow-400 rounded-l-full"></div>
+      <div class="w-10 h-5 bg-green-400"></div>
+      <div class="w-10 h-5 bg-blue-400 rounded-r-full border-l border-blue-600"></div>
+    </div>-->
+  
+    <!-- Tabla -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full border border-gray-300 text-center">
+        <thead class="bg-gray-200 text-black font-bold">
+          <tr>
+            <th class="px-4 py-2 border">ID</th>
+            <th class="px-4 py-2 border">Nombre</th>
+            <th class="px-4 py-2 border">Apellido</th>
+            <th class="px-4 py-2 border">Tipo</th>
+            <th class="px-4 py-2 border">Imagen</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (tramite of procedures; track tramite.id) {
+            <tr class="bg-gray-100 hover:bg-gray-200">
+              <td class="px-4 py-2 border text-gray-800">{{ tramite.id }}</td>
+              <td class="px-4 py-2 border text-gray-800">{{ tramite.nombre }}</td>
+              <td class="px-4 py-2 border text-gray-800">{{ tramite.apellido }}</td>
+              <td class="px-4 py-2 border text-gray-800">{{ tramite.tipo }}</td>
+              <td class="px-4 py-2 border text-xl">
+                <i class="fa-solid fa-eye text-black"></i>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Botón regresar flotante -->
+    <div class="fixed bottom-6 right-6">
+      <a routerLink="/dashboard/process">
+        <button class="flex items-center gap-2 bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-full shadow-md">
+          <i class="fa-solid fa-arrow-left"></i>
+          Regresar
+        </button>
+      </a>
+    </div>
+  </section>
+  
