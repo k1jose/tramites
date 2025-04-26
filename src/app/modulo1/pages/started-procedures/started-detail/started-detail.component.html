@@ -1,72 +1,50 @@
-<div class="p-6 bg-gray-100 rounded-xl shadow-lg relative min-h-screen">
+<form [formGroup]="form" class="p-6 bg-gray-100 rounded-xl shadow-lg relative min-h-screen">
   <h2 class="text-xl font-semibold text-center mb-4 text-blue-800">Verificación de trámite</h2>
 
   <!-- Imagen del trámite -->
   <div class="flex justify-center mb-4">
-    <img
-      src="assets/img/logo.png"
-      alt="Documento del trámite"
-      class="border rounded shadow-md"
-    />
+    <img src="assets/img/logo.png" alt="Documento del trámite" class="border rounded shadow-md" />
   </div>
 
-  <!-- Requisitos + Observación -->
-  <div class="grid grid-cols-2 gap-6">
-    <!-- Requisitos -->
-    <div>
-      <h3 class="font-bold mb-2">Requisitos cumplidos</h3>
-      <ul class="space-y-1">
-        @for (req of requisitos; track req) {
-          <li class="flex items-center gap-2 text-sm text-gray-800">
-            <i class="fa-solid fa-square-check text-blue-600"></i> {{ req }}
-          </li>
-        }
-      </ul>
+  <!-- Casillas de verificación -->
+  <div formArrayName="checkboxes"
+    class="bg-white rounded-xl border overflow-y-auto max-h-60 shadow-inner divide-y mb-6">
+    <div *ngFor="let persona of casillaVerificacion; let i = index"
+      class="flex justify-between items-center px-4 py-3 hover:bg-gray-50">
+      <span class="text-gray-800 font-medium">{{ persona.nombre }}</span>
+      <input type="checkbox" [formControlName]="i" class="form-checkbox h-5 w-5 text-violet-600 rounded focus:ring-0" />
     </div>
+  </div>
 
-    <!-- Observación -->
+  <!-- Observación -->
+  <div class="grid grid-cols-2 gap-6">
     <div>
       <h3 class="font-bold mb-2">Observación</h3>
-      <textarea
-        [(ngModel)]="observacion"
-        rows="6"
-        placeholder="Escribe una observación..."
-        class="w-full border border-gray-300 rounded p-2 text-sm resize-none"
-      ></textarea>
+    <textarea formControlName="observacion" rows="6" placeholder="Escribe una observación..."
+      class="w-full border border-gray-300 rounded p-2 text-sm resize-none"></textarea>
     </div>
   </div>
 
-  <!-- Botones de acción -->
+  <!-- Botones -->
   <div class="flex justify-center gap-4 mt-6">
-    <button
-      (click)="guardar()"
-      class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded shadow text-sm"
-    >
+    <button type="button" (click)="guardar()"
+      class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded shadow text-sm">
       Guardar
     </button>
-    <button
-      (click)="denegar()"
-      class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded shadow text-sm"
-    >
+    <button type="button" (click)="denegar()"
+      class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded shadow text-sm">
       Denegado
     </button>
-    <button
-      (click)="cancelar()"
-      class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow text-sm"
-    >
+    <button type="button" (click)="cancelar()"
+      class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow text-sm">
       Cancelar
     </button>
   </div>
 
-  <!-- Botón Regresar flotante -->
-  <button
-  type="button"
-  (click)="goBack()"
-  class="fixed bottom-4 right-4 bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-full shadow flex items-center gap-2 text-sm"
->
-  <i class="fa-solid fa-arrow-left"></i>
-  Regresar
-</button>
-
-
-</div>
+  <!-- Botón Regresar -->
+  <button type="button" (click)="goBack()"
+    class="fixed bottom-4 right-4 bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-full shadow flex items-center gap-2 text-sm">
+    <i class="fa-solid fa-arrow-left"></i>
+    Regresar
+  </button>
+</form>
